@@ -63,8 +63,14 @@ round_rules <- function(rules, digits = 4) {
   rules
 }
 
-run_association <- function() {
-  transactions <- make_transactions()
+# Mine rules over a transaction set and return the collected results.
+#
+# Args:
+#   transactions: optional list of character vectors. When NULL, the
+#     deterministic generator above is used (seed 1), which matches the
+#     committed data/transactions.csv exactly.
+run_association <- function(transactions = NULL) {
+  if (is.null(transactions)) transactions <- make_transactions()
   list(
     n_transactions = length(transactions),
     rules = association_rules(transactions)
