@@ -4,9 +4,12 @@
 .Rproj.user/
 *.Rproj
 
-# Generated outputs
+# Generated outputs: figures and RESULTS.md are committed for review,
+# anything else under results/ stays ignored.
 results/*
 !results/.gitkeep
+!results/*.png
+!results/RESULTS.md
 
 # OS
 .DS_Store
