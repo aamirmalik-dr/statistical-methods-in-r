@@ -25,6 +25,24 @@ check <- function(cond, msg) {
 check(nrow(datasets$mtcars) == 32, "mtcars has 32 rows")
 check(ncol(datasets$arrests) == 4, "USArrests has 4 columns")
 
+# Committed sample CSVs (when present) round-trip to the built-ins exactly.
+data_dir <- file.path(root, "data")
+if (file.exists(file.path(data_dir, "mtcars.csv"))) {
+  from_csv <- load_datasets(data_dir)
+  check(isTRUE(all.equal(from_csv$mtcars, datasets$mtcars, tolerance = 1e-9)),
+        "mtcars.csv matches the built-in dataset")
+  check(isTRUE(all.equal(from_csv$arrests, datasets$arrests, tolerance = 1e-9)),
+        "usarrests.csv matches the built-in dataset")
+  check(isTRUE(all.equal(from_csv$tooth$len, datasets$tooth$len)) &&
+          identical(as.character(from_csv$tooth$supp),
+                    as.character(datasets$tooth$supp)),
+        "tooth_growth.csv matches the built-in dataset")
+  csv_rules <- run_association(load_transactions(data_dir))$rules
+  gen_rules <- run_association()$rules
+  check(isTRUE(all.equal(csv_rules, gen_rules, check.attributes = FALSE)),
+        "transactions.csv yields the same rules as the seed-1 generator")
+}
+
 # Hypothesis tests return finite p-values in [0, 1].
 ht <- run_hypothesis_tests(datasets)
 check(ht$supp_ttest$p_value >= 0 && ht$supp_ttest$p_value <= 1, "t-test p-value in range")
