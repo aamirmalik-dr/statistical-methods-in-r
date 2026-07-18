@@ -1,7 +1,5 @@
 # statistical-methods-in-r
 
-*Origin: Originally developed for the Data Science Methodology course at KAIST (Spring 2022); refactored and open-sourced in July 2026.*
-
 A method-by-method tour of classical statistics, written entirely in base R.
 Hypothesis tests, analysis of variance, regression, principal component and
 factor analysis, and association-rule mining implemented from scratch, each
@@ -190,3 +188,7 @@ MIT, see [LICENSE](LICENSE).
 
 Aamir Malik. [GitHub](https://github.com/aamirmalik-dr) ·
 [LinkedIn](https://linkedin.com/in/dr-aamirmalik)
+
+---
+
+*Refactored and engineered into this tested, reproducible project in July 2026, from work originally done for the Data Science Methodology course at KAIST (Spring 2022).*
