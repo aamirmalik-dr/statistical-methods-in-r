@@ -1,4 +1,4 @@
-# Statistical methods in R
+# statistical-methods-in-r
 
 *Origin: Originally developed for the Data Science Methodology course at KAIST (Spring 2022); refactored and open-sourced in July 2026.*
 
