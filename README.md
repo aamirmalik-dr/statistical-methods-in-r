@@ -1,5 +1,7 @@
 # Statistical methods in R
 
+*Origin: Originally developed for the Data Science Methodology course at KAIST (Spring 2022); refactored and open-sourced in July 2026.*
+
 A method-by-method tour of classical statistics, written entirely in base R.
 Hypothesis tests, analysis of variance, regression, principal component and
 factor analysis, and association-rule mining implemented from scratch, each
